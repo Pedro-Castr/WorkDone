@@ -29,7 +29,6 @@ header {
 }
 
 #titulo {
-    font-style: italic;
     text-decoration: none;
     color: var(--white);
 }

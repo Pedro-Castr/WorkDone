@@ -2,14 +2,40 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    body {
-        background-color: blueviolet;
+    header {
+        justify-content: space-between;
+    }
+
+    #titulo {
+        font-size: 2em;
+    }
+
+    #configuracoes, #navbar {
+        width: 60px;
+        height: 60px;
+        margin: 0 30px;
+    }
+
+    #container {
+        display: flex;
+        height: 100%;
+    }
+
+    #sidebar {
+        width: 400px;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    main {
+        margin-left: 420px;
+        width: calc(100% - 400px);
+        height: 85vh;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    body {
-        background-color: brown;
-    }
+
 }
