@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+:root {
+    --green: #32BA7C;
+    --black: #111411;
+    --white: #f5f5f5;
+    --whitehover: #dbdbdb;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* Personalização do header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+}
+
+#titulo {
+    font-style: italic;
+    text-decoration: none;
+    color: var(--white);
+}
+
+#titulo > h1 > span {
+    color: var(--green);
+}
+
+#configuracoes, #navbar {
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    transition: transform 0.3s ease;
+}
+
+#configuracoes:hover, #navbar:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
+    background-color: var(--whitehover);
+    transform: translateY(-2px);
+}
+
+#configuracoes > img, #navbar > img {
+    width: 25px;
+}
+
+#navbar {
+    border: none;
+}
+
+/* Personalização da barra lateral */
+
+#sidebar {
+    position: fixed;
+    left: -250px; /* Mantém a barra fora da tela inicialmente */
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 0 20px 20px 0;
+    transition: left 0.3s ease;
+    z-index: 1000; /* Fica acima de outros elementos */
+    padding-top: 20px;
+}
+
+/* Mostrar a barra lateral */
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid var(--black);
+    border-radius: 16px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 150px;
+}
+
+#sidebar > div > p {
+    color: var(--black);
+    text-align: center;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+#sidebar > div > a > img {
+    width: 40px;
+    transition: transform 0.3s ease;
+}
+
+#sidebar > div > a > img:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}
