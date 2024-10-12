@@ -28,6 +28,11 @@
         z-index: 1;
     }
 
+    #projetos > ul > li {
+        font-size: 1.5em;
+        padding: 12px;
+    }
+
     main {
         margin-left: 420px;
         width: calc(100% - 400px);
