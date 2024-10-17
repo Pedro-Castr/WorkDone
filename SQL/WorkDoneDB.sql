@@ -2,10 +2,10 @@ CREATE DATABASE workdone;
 
 CREATE TABLE usuario (
 	usuarioId INT PRIMARY KEY AUTO_INCREMENT,
-    nomeUsuario VARCHAR(60),
-    senha VARCHAR(100),
-    email VARCHAR(120),
-    telefone VARCHAR(11),
+    nomeUsuario VARCHAR(60) UNIQUE,
+    senha VARCHAR(255),
+    email VARCHAR(120) UNIQUE,
+    telefone VARCHAR(11) UNIQUE,
     sexo CHAR(1)
 );
 

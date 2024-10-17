@@ -1,3 +1,8 @@
+<?php 
+    error_reporting(0);
+    session_start();
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +30,7 @@
             <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-            <form method="POST" action="index.html" class="login">
+            <form method="POST" action="#" class="login">
                 <div class="field">
                     <input type="text" name="email" id="email" placeholder="Email " required>
                 </div>
@@ -41,16 +46,31 @@
                 </div>
             </form>
 
-            <form method="POST" action="#" class="signup">
+            <form method="POST" action="Features/insertUsuario.php" class="signup">
                 <div class="field">
                     <input type="text" name="registroEmail" id="registroEmail" placeholder="Email " required>
                 </div>
+                <?php if ($_SESSION['msgError'] == "EmailEmUso"): ?>
+                    <div class="pass-link error">
+                        <a>Email já está em uso</a>
+                    </div> 
+                <?php endif; ?>
                 <div class="field">
                     <input type="password" name="registroSenha" id="registroSenha" placeholder="Senha" minlength="8" required>
                 </div>
                 <div class="field">
                     <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirma senha" required>
                 </div>
+                <?php if ($_SESSION['msgError'] == "SenhasDiferentes"): ?>
+                    <div class="pass-link error">
+                        <a>Insira a mesma senha</a>
+                    </div>
+                <?php endif;?>
+                <?php if ($_SESSION['msgSucess'] == "Registrado"): ?>
+                    <div class="pass-link success">
+                        <a>Registrado</a>
+                    </div>
+                <?php endif; ?>
                 <div class="field btn">
                     <div class="btn-layer"></div>
                     <input type="submit" value="Registrar">
@@ -61,6 +81,6 @@
 </div>
 
     <script type="text/javascript" src="login.js"></script>
-
+    <?php session_unset() ?>
 </body>
 </html>
