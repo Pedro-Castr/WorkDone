@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login e Registro</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 <div class="wrapper">
@@ -31,36 +32,52 @@
         </div>
         <div class="form-inner">
             <form method="POST" action="#" class="login">
-                <div class="field">
-                    <input type="text" name="email" id="email" placeholder="Email " required>
+            <div class="row px-1">  
+                <div class="col-12">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Usuário" autofocus required>
                 </div>
-                <div class="field">
-                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+
+                <div class="col-12">
+                    <label for="nome" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                 </div>
-                <div class="field btn">
-                    <div class="btn-layer"></div>
-                    <input type="submit" value="Entrar">
-                </div>
-                <div class="signup-link">
-                    Sem conta? <a href="">Registre agora</a>
-                </div>
+            </div>
+            <div class="signup-link">
+                Sem conta? <a href="">Registre agora</a>
+            </div>
             </form>
 
             <form method="POST" action="Features/insertUsuario.php" class="signup">
-                <div class="field">
-                    <input type="text" name="registroEmail" id="registroEmail" placeholder="Email " required>
+
+                <div class="row px-1">      
+                    <div class="col-12">
+                        <label for="nome" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Seu melhor Email" autofocus required>
+                    </div>
+
+                    <?php if ($_SESSION['msgError'] == "EmailEmUso"): ?>
+                        <div class="pass-link error">
+                            <a>Email já está em uso</a>
+                        </div> 
+                    <?php endif; ?>
+
+                    <div class="col-6">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome de Usuário" required>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="nome" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="nome" class="form-label">Telefone</label>
+                        <input type="password" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
+                    </div>
                 </div>
-                <?php if ($_SESSION['msgError'] == "EmailEmUso"): ?>
-                    <div class="pass-link error">
-                        <a>Email já está em uso</a>
-                    </div> 
-                <?php endif; ?>
-                <div class="field">
-                    <input type="password" name="registroSenha" id="registroSenha" placeholder="Senha" minlength="8" required>
-                </div>
-                <div class="field">
-                    <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirma senha" required>
-                </div>
+
                 <?php if ($_SESSION['msgError'] == "SenhasDiferentes"): ?>
                     <div class="pass-link error">
                         <a>Insira a mesma senha</a>
