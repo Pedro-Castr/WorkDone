@@ -40,7 +40,7 @@ header {
 }
 
 #configuracoes, #navbar {
-    background-color: var(--black);
+    background-color: var(--green);
     border-radius: 50%;
     padding: 10px;
     width: 55px;
@@ -70,7 +70,7 @@ header {
 
 #sidebar {
     position: fixed;
-    left: -250px; /* Mantém a barra fora da tela inicialmente */
+    left: -265px; /* Mantém a barra fora da tela inicialmente */
     top: 0;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@ header {
     flex-direction: column;
     width: 250px;
     height: 100%;
-    background-color: var(--white1);
+    background-color: var(--white);
     border-radius: 0 20px 20px 0;
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.397);
     transition: left 0.3s ease;
@@ -182,7 +182,6 @@ main > div > p {
 
 main > div > a > img {
     width: 60px;
-    filter: invert(100%); /* Faz com que a cor seja branca */
     transition: transform 0.3s ease;
 }
 
