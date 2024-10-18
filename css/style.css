@@ -32,7 +32,6 @@ header {
 #titulo {
     text-decoration: none;
     color: var(--black);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.527);
 }
 
 #titulo > h1 > span {
