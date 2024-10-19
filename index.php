@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media-queries.css">
     <link rel="shortcut icon" href="imagens/checkedIcon.png" type="image/x-icon">
-    <script src="main.js" defer></script>
+    <script src="JavaScript/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
             <img src="imagens/list.svg" alt="Menu">
         </button>
 
-        <a href="index.html" id="titulo">
+        <a href="index.php" id="titulo">
             <h1>Work<span>Done</span></h1>
         </a>
 
