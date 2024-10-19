@@ -37,6 +37,18 @@
         width: calc(100% - 250px);
         height: 85vh;
     }
+
+    /* Personalizando o arquivo login.php */
+
+    #titulo-login h1 {
+        font-size: 4em;
+    }
+
+    .wrapper {
+        max-width: 450px;
+        min-height: 580px;
+        margin-top: 210px;
+    }
 }
 
 /* Large devices */
@@ -76,5 +88,17 @@
         margin-left: 420px;
         width: calc(100% - 400px);
         height: 85vh;
+    }
+
+    /* Personalizando o arquivo login.php */
+
+    #titulo-login h1 {
+        font-size: 4.5em;
+    }
+
+    .wrapper {
+        max-width: 480px;
+        min-height: 610px;
+        margin-top: 230px;
     }
 }
