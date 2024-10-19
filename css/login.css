@@ -1,9 +1,22 @@
 @charset "UTF-8";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "SoulMaze";
+    src: url(../fonts/MADE\ Soulmaze\ Italic\ PERSONAL\ USE.otf);
+}
+@font-face {
+    font-family: "SoulMazeOutline";
+    src: url(../fonts/MADE\ Soulmaze\ Outline\ Italic\ PERSONAL\ USE.otf);
+}
+
+@font-face {
+    font-family: "Space-Grotesk";
+    src: url(../fonts/SpaceGrotesk-VariableFont_wght.ttf);
 }
 
 :root {
@@ -16,6 +29,11 @@
     --white3: #b3b3b3;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html, body {
     display: flex;
@@ -23,6 +41,7 @@ html, body {
     height: 100%;
     width: 100%;
     background-image: radial-gradient(circle, #32ba7c, #31af76, #30a570, #2f9a6a, #2e9064, #2e885f, #2e805b, #2e7856, #2f7052, #2f674e, #2f5f49, #2f5745);
+    font-family: "Poppins";
 }
 
 #titulo-login {
@@ -34,6 +53,7 @@ html, body {
     height: 250px;
     top: 0;
     left: 0;
+    font-family: "SoulMaze";
 }
 
 #titulo-login h1 {
@@ -42,6 +62,7 @@ html, body {
 
 #titulo-login span {
     color: var(--white);
+    font-family: "SoulMazeOutline";
 }
 
 .wrapper {
@@ -59,6 +80,7 @@ html, body {
 .wrapper .title-text {
     display: flex;
     width: 200%;
+    font-family: "Space-Grotesk";
 }
 
 .wrapper .title  {
@@ -188,6 +210,7 @@ form .btn {
     border-radius: 8px;
     position: relative;
     overflow: hidden;
+    font-family: "Space-Grotesk";
 }
 
 form .btn .btn-layer {

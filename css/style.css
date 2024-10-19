@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "SoulMaze";
+    src: url(../fonts/MADE\ Soulmaze\ Italic\ PERSONAL\ USE.otf);
+}
+@font-face {
+    font-family: "SoulMazeOutline";
+    src: url(../fonts/MADE\ Soulmaze\ Outline\ Italic\ PERSONAL\ USE.otf);
+}
+
+@font-face {
+    font-family: "Space-Grotesk";
+    src: url(../fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
 :root {
     --green: #32BA7C;
     --green2: #1c6947;
@@ -19,6 +38,7 @@
 body {
     background-color: var(--white);
     color: var(--black);
+    font-family: "Poppins";
 }
 
 /* Personalização do header */
@@ -33,11 +53,12 @@ header {
 #titulo {
     text-decoration: none;
     color: var(--black);
-    font-size: 1.2em;
+    font-family: "SoulMaze";
 }
 
 #titulo > h1 > span {
     color: var(--green);
+    font-family: "SoulMazeOutline";
 }
 
 #configuracoes, #navbar {
@@ -120,6 +141,7 @@ header {
 
 #projetos > ul > li {
     color: var(--black);
+    font-family: "Space-grotesk";
     font-size: 1.3em;
     padding: 10px;
     margin-bottom: 5px;
