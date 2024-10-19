@@ -15,7 +15,7 @@
             <img src="imagens/list.svg" alt="Menu">
         </button>
 
-        <a href="index.html" id="titulo">
+        <a href="index.php" id="titulo">
             <h1>Work<span>Done</span></h1>
         </a>
 

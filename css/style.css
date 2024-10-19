@@ -33,6 +33,7 @@ header {
 #titulo {
     text-decoration: none;
     color: var(--black);
+    font-size: 1.2em;
 }
 
 #titulo > h1 > span {
