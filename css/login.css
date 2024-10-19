@@ -18,20 +18,41 @@
 
 
 html, body {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
-    place-items: center;
     background-image: radial-gradient(circle, #32ba7c, #31af76, #30a570, #2f9a6a, #2e9064, #2e885f, #2e805b, #2e7856, #2f7052, #2f674e, #2f5f49, #2f5745);
 }
 
+#titulo-login {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 250px;
+    top: 0;
+    left: 0;
+}
+
+#titulo-login h1 {
+    font-size: 3em;
+}
+
+#titulo-login span {
+    color: var(--white);
+}
+
 .wrapper {
+    position: relative;
     overflow: hidden;
     max-width: 390px;
     background: var(--white);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.397);
+    margin: auto;
 }
 
 .wrapper .title-text {
