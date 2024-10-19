@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media-queries.css">
     <link rel="shortcut icon" href="imagens/checkedIcon.png" type="image/x-icon">
-    <script src="main.js" defer></script>
+    <script src="JavaScript/main.js" defer></script>
 </head>
 <body>
     <header>

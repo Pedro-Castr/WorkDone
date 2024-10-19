@@ -124,7 +124,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="JavaScript/login.js"></script>
     <?php session_unset() ?>
 </body>
 </html>
