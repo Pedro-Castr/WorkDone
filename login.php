@@ -32,6 +32,7 @@
                 <div class="slider-tab"></div>
             </div>
             <div class="form-inner">
+
                 <form method="POST" action="#" class="login">
                 <div class="row px-1">  
                     <div class="col-12">
@@ -44,6 +45,12 @@
                         <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                     </div>
                 </div>
+
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Login">
+                </div>
+
                 <div class="signup-link">
                     Sem conta? <a href="">Registre agora</a>
                 </div>
@@ -93,11 +100,13 @@
                             <a>Insira a mesma senha</a>
                         </div>
                     <?php endif;?>
+
                     <?php if ($_SESSION['msgSucess'] == "Registrado"): ?>
                         <div class="pass-link success">
                             <a>Registrado</a>
                         </div>
                     <?php endif; ?>
+
                     <div class="field btn">
                         <div class="btn-layer"></div>
                         <input type="submit" value="Registrar">
