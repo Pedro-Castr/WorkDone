@@ -45,7 +45,7 @@
         <main>
             <div>
                 <p>Está um pouco quieto por aqui, crie seu primeiro projeto agora mesmo!</p>
-                <a href="#">
+                <a href="./Features/formProjeto.php">
                     <img src="imagens/plus-lg.svg" alt="Cria projeto">
                 </a>
             </div>
