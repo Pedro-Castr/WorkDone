@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_GET['id'])) {
+if (isset($_POST['id'])) {
 
     // Carrega lib do banco de dados
     require_once "../lib/Database.php";
