@@ -58,7 +58,6 @@ header {
 
 #titulo > h1 > span {
     color: var(--green);
-    font-family: "SoulMazeOutline";
 }
 
 #configuracoes, #navbar {
@@ -77,6 +76,10 @@ header {
 #configuracoes:hover, #navbar:hover {
     cursor: pointer;
     transform: translateY(-5px);
+}
+
+#configuracoes:hover img, #navbar:hover img {
+    filter: invert(100%);
 }
 
 #configuracoes > img, #navbar > img {
@@ -105,6 +108,24 @@ header {
     transition: left 0.3s ease;
     z-index: 1000; /* Fica acima de outros elementos */
     padding-top: 20px;
+}
+
+#add-projeto {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    transition: transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#add-projeto:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: translateY(-3px);
+}
+
+#add-projeto img {
+    width: 20px;
 }
 
 /* Mostrar a barra lateral */
@@ -176,13 +197,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--white2);
     min-height: 80vh;
     margin: 15px 20px;
     border-radius: 20px;
-    background-color: var(--white2);
 }
 
-main > div {
+#sem-projetos-main {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -194,7 +215,7 @@ main > div {
     margin-bottom: 150px;
 }
 
-main > div > p {
+#sem-projetos-main > p {
     color: var(--black);
     text-align: center;
     font-size: 1.5em;
@@ -202,12 +223,152 @@ main > div > p {
     line-height: 1.3;
 }
 
-main > div > a > img {
+#sem-projetos-main > a > img {
     width: 60px;
     transition: transform 0.3s ease;
 }
 
-main > div > a > img:hover {
+#sem-projetos-main > a > img:hover {
     cursor: pointer;
     transform: translateY(-6px);
+}
+
+#projetos-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 80vh;
+    width: 100%;
+}
+
+.cabecalho-projeto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cabecalho h2 {
+    font-family: "Space-Grotesk";
+    font-size: 1.2em;
+    margin: 5px 0 0 5px;
+}
+
+#cabecalho h3 {
+    font-family: "Space-Grotesk";
+    font-size: 1em;
+    text-decoration: underline;
+    margin: 5px 5px 0 0;
+}
+
+.descricao-projeto {
+    padding: 15px 8px;
+    text-align: justify;
+}
+
+/* Personalização do botão para adicionar tarefas */
+
+#btn-add-task {
+    display: flex;
+    justify-content: start;
+    padding: 0px 10px;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.add-task {
+    width: 13rem;
+    height: auto;
+}
+
+button.add-task .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: var(--green);
+    border-radius: 1.625rem;
+}
+
+button.add-task .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.add-task .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.add-task .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.add-task .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: var(--black);
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    font-family: "Space-Grotesk";
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+/* Personalização da Table */
+
+.icon {
+    filter: invert(100%);
 }

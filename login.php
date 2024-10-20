@@ -44,13 +44,13 @@
                 <form method="POST" action="#" class="login">
                 <div class="row px-1">  
                     <div class="col-12">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Usuário" autofocus required>
+                        <label for="nome" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="nome" name="nome" autofocus required>
                     </div>
 
                     <div class="col-12">
                         <label for="nome" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
                     <div class="row px-1">      
                         <div class="col-12">
                             <label for="nome" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Seu melhor Email" autofocus required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu melhor Email" autofocus required>
                         </div>
 
                         <?php if ($_SESSION['msgError'] == "EmailEmUso"): ?>
@@ -90,7 +90,7 @@
 
                         <div class="col-7">
                             <label for="nome" class="form-label">Telefone</label>
-                            <input type="password" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
+                            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
                         </div>
 
                         <div class="col-5">
