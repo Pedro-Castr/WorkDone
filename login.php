@@ -2,6 +2,8 @@
     error_reporting(0);
     session_start();
     
+    echo $_SESSION['msgSucess'];
+    echo $_SESSION['msgError'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,13 +32,18 @@
             <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-            <form method="POST" action="#" class="login">
+            <form method="POST" action="Features/autenticacaoUsuario.php" class="login">
                 <div class="field">
                     <input type="text" name="email" id="email" placeholder="Email " required>
                 </div>
                 <div class="field">
                     <input type="password" name="senha" id="senha" placeholder="Senha" required>
                 </div>
+                <?php if ($_SESSION['msgError'] == "LoginIncorreto"): ?>
+                    <div class="pass-link error">
+                        <a>Senha ou Email incorretos</a>
+                    </div> 
+                <?php endif; ?>
                 <div class="field btn">
                     <div class="btn-layer"></div>
                     <input type="submit" value="Entrar">
@@ -46,7 +53,7 @@
                 </div>
             </form>
 
-            <form method="POST" action="Features/insertUsuario.php" class="signup">
+            <form method="POST" action="Features/verificarEmail.php" class="signup">
                 <div class="field">
                     <input type="text" name="registroEmail" id="registroEmail" placeholder="Email " required>
                 </div>
