@@ -68,14 +68,16 @@
                     </p>
                 </div>
 
-                <div id="btn-add-task">
-                    <button class="add-task">
-                        <span class="circle" aria-hidden="true">
-                            <span class="icon arrow"></span>
-                        </span>
-                        <span class="button-text">Adicionar Tarefa</span>
-                    </button>
-                </div>
+                <a href="./Features/formProjeto.php?acao=insert">
+                    <div id="btn-add-task">
+                        <button class="add-task">
+                            <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">Adicionar Tarefa</span>
+                        </button>
+                    </div>
+                </a>
 
                 <table class="table table-hover table-bordered table-responsive-sm mt-4">
                     <thead>

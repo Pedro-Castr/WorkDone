@@ -1,3 +1,23 @@
+<?php
+
+require_once "../lib/Database.php";
+require_once "../lib/funcoes.php";
+
+$db = new Database();
+$func = new Funcoes();
+
+$dados = [];
+
+if ($_GET['acao'] != 'insert') {
+    $dados = $db->dbSelect(
+        "SELECT nomeProjeto, prazo, descricao, situacao FROM projetos WHERE projetoId = ?",
+        'first',
+        [$_GET['id']]
+    );
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,23 +40,47 @@
         <h1>Cadasto de Projetos</h1>
 
         <hr class="my-2">
+        <form class="g-3" action="<?= $_GET['acao'] ?>projeto.php" method="POST">
+        <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "id") ?>">
+            <div class="row mx-2">
+                <div class="col-7">
+                    <label for="nome" class="form-label">Nome do Projeto</label>
+                    <input type="text" class="form-control" id="nome" name="nome" autocomplete="off" placeholder="Nome do Projeto" required autofocus>
+                </div>
 
-        <div class="row mx-2">
-            <div class="col-7">
-                <label for="descricao" class="form-label">Nome do Projeto</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Nome do Projeto" required autofocus>
+                <div class="col-5">
+                    <label for="prazo" class="form-label">Prazo</label>
+                    <input type="date" class="form-control" id="prazo" name="prazo" autocomplete="off" required autofocus>
+                </div>
+
+                <div class="col-7">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <input type="text" class="form-control" id="descricao" name="descricao" autocomplete="off" placeholder="Descrição do seu Projeto" required autofocus>
+                </div>
+
+                <div class="col-5">
+                    <label for="situacao" class="form-label">Situação</label>
+                    <select name="select" class="form-control" id="situacao" name="situacao" required>
+                        <option value="" selected>...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="col-5">
-                <label for="descricao" class="form-label">Prazo</label>
-                <input type="date" class="form-control" id="descricao" name="descricao" required autofocus>
-            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <a href="../index.php" 
+                        class="btn btn-outline-secondary btn-sm">
+                        Voltar
+                    </a>
 
-            <div class="col-12">
-                <label for="descricao" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição do seu Projeto" required autofocus>
+                    <?php if ($_GET['acao'] != 'view'): ?>
+                        <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
+        </form>
     </main>
 </body>
 </html>
