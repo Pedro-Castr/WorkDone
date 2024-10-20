@@ -273,7 +273,7 @@ button {
 }
 
 button.add-task {
-    width: 15rem;
+    width: 13rem;
     height: auto;
 }
 
@@ -330,7 +330,7 @@ button.add-task .button-text {
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
-    text-transform: uppercase;
+    font-family: "Space-Grotesk";
 }
 
 button:hover .circle {
@@ -345,6 +345,8 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
     color: #fff;
 }
+
+/* Personalização da Table */
 
 .icon {
     filter: invert(100%);

@@ -32,10 +32,20 @@
         padding: 12px;
     }
 
+    /* Personalizando main */
+
     main {
         margin-left: 270px;
         width: calc(100% - 250px);
         height: 85vh;
+    }
+
+    #cabecalho h2 {
+        font-size: 1.4em;
+    }
+    
+    #cabecalho h3 {
+        font-size: 1.2em;
     }
 
     /* Personalizando o arquivo login.php */
@@ -84,10 +94,24 @@
         padding: 12px;
     }
 
+        /* Personalizando main */
+
     main {
         margin-left: 420px;
         width: calc(100% - 400px);
         height: 85vh;
+    }
+
+    #cabecalho h2 {
+        font-size: 1.6em;
+    }
+    
+    #cabecalho h3 {
+        font-size: 1.4em;
+    }
+
+    .descricao-projeto {
+        font-size: 1.1em;
     }
 
     /* Personalizando o arquivo login.php */
