@@ -1,7 +1,27 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "SoulMaze";
+    src: url(../fonts/MADE\ Soulmaze\ Italic\ PERSONAL\ USE.otf);
+}
+@font-face {
+    font-family: "SoulMazeOutline";
+    src: url(../fonts/MADE\ Soulmaze\ Outline\ Italic\ PERSONAL\ USE.otf);
+}
+
+@font-face {
+    font-family: "Space-Grotesk";
+    src: url(../fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
 :root {
     --green: #32BA7C;
+    --green2: #1c6947;
     --black: #111411;
     --black2: #1a1b1a;
     --white: #f5f5f5;
@@ -18,6 +38,7 @@
 body {
     background-color: var(--white);
     color: var(--black);
+    font-family: "Poppins";
 }
 
 /* Personalização do header */
@@ -32,7 +53,7 @@ header {
 #titulo {
     text-decoration: none;
     color: var(--black);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.527);
+    font-family: "SoulMaze";
 }
 
 #titulo > h1 > span {
@@ -40,7 +61,7 @@ header {
 }
 
 #configuracoes, #navbar {
-    background-color: var(--black);
+    background-color: var(--green);
     border-radius: 50%;
     padding: 10px;
     width: 55px;
@@ -54,8 +75,11 @@ header {
 
 #configuracoes:hover, #navbar:hover {
     cursor: pointer;
-    background-color: var(--black2);
     transform: translateY(-5px);
+}
+
+#configuracoes:hover img, #navbar:hover img {
+    filter: invert(100%);
 }
 
 #configuracoes > img, #navbar > img {
@@ -70,7 +94,7 @@ header {
 
 #sidebar {
     position: fixed;
-    left: -250px; /* Mantém a barra fora da tela inicialmente */
+    left: -265px; /* Mantém a barra fora da tela inicialmente */
     top: 0;
     display: flex;
     align-items: center;
@@ -78,12 +102,30 @@ header {
     flex-direction: column;
     width: 250px;
     height: 100%;
-    background-color: var(--white1);
+    background-color: var(--white);
     border-radius: 0 20px 20px 0;
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.397);
     transition: left 0.3s ease;
     z-index: 1000; /* Fica acima de outros elementos */
     padding-top: 20px;
+}
+
+#add-projeto {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    transition: transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#add-projeto:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: translateY(-3px);
+}
+
+#add-projeto img {
+    width: 20px;
 }
 
 /* Mostrar a barra lateral */
@@ -120,6 +162,7 @@ header {
 
 #projetos > ul > li {
     color: var(--black);
+    font-family: "Space-grotesk";
     font-size: 1.3em;
     padding: 10px;
     margin-bottom: 5px;
@@ -154,13 +197,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--white2);
     min-height: 80vh;
     margin: 15px 20px;
     border-radius: 20px;
-    background-color: var(--white2);
 }
 
-main > div {
+#sem-projetos-main {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -172,7 +215,7 @@ main > div {
     margin-bottom: 150px;
 }
 
-main > div > p {
+#sem-projetos-main > p {
     color: var(--black);
     text-align: center;
     font-size: 1.5em;
@@ -180,13 +223,152 @@ main > div > p {
     line-height: 1.3;
 }
 
-main > div > a > img {
+#sem-projetos-main > a > img {
     width: 60px;
-    filter: invert(100%); /* Faz com que a cor seja branca */
     transition: transform 0.3s ease;
 }
 
-main > div > a > img:hover {
+#sem-projetos-main > a > img:hover {
     cursor: pointer;
     transform: translateY(-6px);
+}
+
+#projetos-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 80vh;
+    width: 100%;
+}
+
+.cabecalho-projeto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cabecalho h2 {
+    font-family: "Space-Grotesk";
+    font-size: 1.2em;
+    margin: 5px 0 0 5px;
+}
+
+#cabecalho h3 {
+    font-family: "Space-Grotesk";
+    font-size: 1em;
+    text-decoration: underline;
+    margin: 5px 5px 0 0;
+}
+
+.descricao-projeto {
+    padding: 15px 8px;
+    text-align: justify;
+}
+
+/* Personalização do botão para adicionar tarefas */
+
+#btn-add-task {
+    display: flex;
+    justify-content: start;
+    padding: 0px 10px;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.add-task {
+    width: 13rem;
+    height: auto;
+}
+
+button.add-task .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: var(--green);
+    border-radius: 1.625rem;
+}
+
+button.add-task .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.add-task .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.add-task .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.add-task .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: var(--black);
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    font-family: "Space-Grotesk";
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+/* Personalização da Table */
+
+.icon {
+    filter: invert(100%);
 }
