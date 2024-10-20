@@ -10,7 +10,7 @@ $dados = [];
 
 if ($_GET['acao'] != 'insert') {
     $dados = $db->dbSelect(
-        "SELECT nomeProjeto, prazo, descricao, situacao FROM projetos WHERE projetoId = ?",
+        "SELECT * FROM projetos WHERE projetoId = ?",
         'first',
         [$_GET['id']]
     );
@@ -40,30 +40,32 @@ if ($_GET['acao'] != 'insert') {
         <h1>Cadasto de Projetos</h1>
 
         <hr class="my-2">
-        <form class="g-3" action="<?= $_GET['acao'] ?>projeto.php" method="POST">
-        <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "id") ?>">
+        <form class="g-3" action="<?= $_GET['acao'] ?>Projeto.php" method="POST">
+        <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "projetoId") ?>">
             <div class="row mx-2">
                 <div class="col-7">
                     <label for="nome" class="form-label">Nome do Projeto</label>
-                    <input type="text" class="form-control" id="nome" name="nome" autocomplete="off" placeholder="Nome do Projeto" required autofocus>
+                    <input type="text" class="form-control" id="nome" name="nome" autocomplete="off" placeholder="Nome do Projeto" value="<?= Funcoes::setValue($dados, 'nomeProjeto') ?>" required autofocus>
                 </div>
 
                 <div class="col-5">
                     <label for="prazo" class="form-label">Prazo</label>
-                    <input type="date" class="form-control" id="prazo" name="prazo" autocomplete="off" required autofocus>
+                    <input type="date" class="form-control" id="prazo" name="prazo" autocomplete="off" required value="<?= Funcoes::setValue($dados, 'prazo') ?>">
                 </div>
 
                 <div class="col-7">
                     <label for="descricao" class="form-label">Descrição</label>
-                    <input type="text" class="form-control" id="descricao" name="descricao" autocomplete="off" placeholder="Descrição do seu Projeto" required autofocus>
+                    <input type="text" class="form-control" id="descricao" name="descricao" autocomplete="off" placeholder="Descrição do seu Projeto" value="<?= Funcoes::setValue($dados, 'descricao') ?>" required>
                 </div>
 
                 <div class="col-5">
                     <label for="situacao" class="form-label">Situação</label>
-                    <select name="select" class="form-control" id="situacao" name="situacao" required>
-                        <option value="" selected>...</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                    <select name="select" class="form-control" id="situacao" required>
+                            <option value=""  <?= Funcoes::setValue($dados, 'situacao') == ""  ? 'selected' : '' ?>>...</option>
+                            <option value="1" <?= Funcoes::setValue($dados, 'situacao') == "1" ? 'selected' : '' ?>>Pendente</option>
+                            <option value="2" <?= Funcoes::setValue($dados, 'situacao') == "2" ? 'selected' : '' ?>>Em andamento</option>
+                            <option value="3" <?= Funcoes::setValue($dados, 'situacao') == "3" ? 'selected' : '' ?>>Finalizado</option>
+                            <option value="4" <?= Funcoes::setValue($dados, 'situacao') == "4" ? 'selected' : '' ?>>Atrasado</option>
                     </select>
                 </div>
             </div>

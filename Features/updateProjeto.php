@@ -2,10 +2,10 @@
 
 session_start();
 
-if (isset($_POST['nomeProjeto'])) {
+if (isset($_GET['id'])) {
 
     // Carrega lib do banco de dados
-    require_once "lib/Database.php";
+    require_once "../lib/Database.php";
 
     // criar o objeto do banco e dados
     $db = new Database();
@@ -19,7 +19,7 @@ if (isset($_POST['nomeProjeto'])) {
                                     $_POST['prazo'],
                                     $_POST['descricao'],
                                     $_POST['situacao'],
-                                    $_GET['id']
+                                    $_POST['id']
                                 ]);
         
         if ($result > 0) {      // sucesso

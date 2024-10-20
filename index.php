@@ -1,3 +1,12 @@
+<?php
+    require_once "lib/Database.php";
+    require_once "lib/funcoes.php";
+
+    $db = new Database();
+
+    $data = $db->dbSelect("SELECT * FROM projetos");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -68,35 +77,54 @@
                     </p>
                 </div>
 
-                <a href="./Features/formProjeto.php?acao=insert">
-                    <div id="btn-add-task">
+                <div id="btn-add-task">
+                    <a href="./Features/formProjeto.php?acao=insert">
                         <button class="add-task">
                             <span class="circle" aria-hidden="true">
                                 <span class="icon arrow"></span>
                             </span>
                             <span class="button-text">Adicionar Tarefa</span>
                         </button>
-                    </div>
-                </a>
+                    </a>
+                </div>
 
                 <table class="table table-hover table-bordered table-responsive-sm mt-4">
                     <thead>
                         <tr>
                             <th>Tarefa</th>
                             <th>Prazo</th>
-                            <th style="width: 1%;">Ações</th> <!-- Limita a largura da coluna -->
+                            <th style="width: 200px;">Ações</th> <!-- Limita a largura da coluna -->
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>Cadastrar Projeto</td>
                             <td>12/12/2024</td>
                             <td class="text-nowrap">
                                 <button type="button" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar tarefa"></button>
                                 <button type="button" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></button>
                             </td>
-                        </tr>
+                        </tr> -->
+
+                        <?php if (count($data) > 0): ?>
+                            <?php foreach ($data as $row): ?>
+                                <tr>
+                                    <td><?= $row['nomeProjeto'] ?></td>
+                                    <td><?= $row['prazo'] ?></td>
+                                    <td>
+                                        <a href="./Features/formProjeto.php?acao=delete&id=<?= $row['projetoId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
+                                        <a href="./Features/formProjeto.php?acao=update&id=<?= $row['projetoId'] ?>" class="btn btn-secondary"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
+                                        <a href="./Features/formProjeto.php?acao=concluir&id=<?= $row['projetoId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6">Nenhuma tarefa encontrado.</td>
+                            </tr>
+                        <?php endif; ?>
+
                     </tbody>
                 </table>
             </div>
