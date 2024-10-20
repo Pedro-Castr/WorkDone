@@ -33,6 +33,10 @@
             </div>
             -->
 
+            <div id="add-projeto">
+                <h5>Adicionar projeto</h5>
+            </div>
+
             <div id="projetos">
                 <ul>
                     <li>Projeto teste1</li>

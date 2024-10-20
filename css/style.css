@@ -110,6 +110,24 @@ header {
     padding-top: 20px;
 }
 
+#add-projeto {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    transition: transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#add-projeto:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: translateY(-3px);
+}
+
+#add-projeto img {
+    width: 20px;
+}
+
 /* Mostrar a barra lateral */
 #sidebar.active {
     left: 0;
