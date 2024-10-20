@@ -6,7 +6,7 @@ if (isset($_POST['nome'])) {
 
     // Carrega lib do banco de dados
     require_once "../lib/Database.php";
-    //
+    
     require_once "../lib/funcoes.php";
 
     // criar o objeto do banco e dados
