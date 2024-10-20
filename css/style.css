@@ -58,7 +58,6 @@ header {
 
 #titulo > h1 > span {
     color: var(--green);
-    font-family: "SoulMazeOutline";
 }
 
 #configuracoes, #navbar {
@@ -77,6 +76,10 @@ header {
 #configuracoes:hover, #navbar:hover {
     cursor: pointer;
     transform: translateY(-5px);
+}
+
+#configuracoes:hover img, #navbar:hover img {
+    filter: invert(100%);
 }
 
 #configuracoes > img, #navbar > img {
