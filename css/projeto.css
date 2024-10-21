@@ -60,3 +60,10 @@ main h1 {
     font-family: "Space-Grotesk";
     padding: 10px;
 }
+
+#descricao {
+    height: 200px; /* Ajuste conforme necessário */
+    border: 1px solid #ccc; /* Adiciona borda ao editor */
+    padding: 10px;
+    background-color: white; /* Garante que o fundo seja branco */
+}

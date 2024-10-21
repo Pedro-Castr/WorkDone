@@ -43,7 +43,9 @@
             -->
 
             <div id="add-projeto">
-                <h5>Adicionar projeto</h5>
+                <a href="./Features/formProjeto.php?acao=insert">
+                    <h5>Adicionar projeto</h5>
+                </a>
             </div>
 
             <div id="projetos">
