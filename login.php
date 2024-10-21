@@ -1,6 +1,7 @@
 <?php
     error_reporting(0);
     session_start();
+    echo $_SESSION['msgError'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,18 +42,23 @@
             </div>
             <div class="form-inner">
 
-                <form method="POST" action="#" class="login">
+                <form method="POST" action="Features/autenticacaoUsuario.php" class="login">
                 <div class="row px-1">  
                     <div class="col-12">
-                        <label for="nome" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="nome" name="nome" autofocus required>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" autofocus required>
                     </div>
 
                     <div class="col-12">
-                        <label for="nome" class="form-label">Senha</label>
+                        <label for="senha" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="senha" name="senha" required>
                     </div>
                 </div>
+                <?php if ($_SESSION['msgError'] == "LoginIncorreto"): ?>
+                        <div class="pass-link error">
+                            <a>Senha ou Email incorretos</a>
+                        </div>
+                <?php endif;?>
 
                 <div class="field btn">
                     <div class="btn-layer"></div>
@@ -68,8 +74,8 @@
 
                     <div class="row px-1">      
                         <div class="col-12">
-                            <label for="nome" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu melhor Email" autofocus required>
+                            <label for="registroEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registroEmail" name="registroEmail" placeholder="Seu melhor Email" autofocus required>
                         </div>
 
                         <?php if ($_SESSION['msgError'] == "EmailEmUso"): ?>
@@ -79,36 +85,40 @@
                         <?php endif; ?>
 
                         <div class="col-6">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome de Usuário" required>
+                            <label for="registroNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="registroNome" name="registroNome" placeholder="Nome de Usuário" required>
+                            <?php if ($_SESSION['msgError'] == "nomeEmUso"): ?>
+                                <div class="pass-link error">
+                                    <a>Nome em uso</a>
+                                </div>
+                            <?php endif;?>
                         </div>
 
                         <div class="col-6">
-                            <label for="nome" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                            <label for="registroSenha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="registroSenha" name="registroSenha" placeholder="Senha" required>
                         </div>
 
                         <div class="col-7">
-                            <label for="nome" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
+                            <label for="registroTelefone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="registroTelefone" name="registroTelefone" placeholder="(99) 99999-9999">
+                            <?php if ($_SESSION['msgError'] == "telefoneEmUso"): ?>
+                                <div class="pass-link error">
+                                    <a>Telefone em uso</a>
+                                </div>
+                            <?php endif;?>
                         </div>
 
                         <div class="col-5">
-                            <label for="statusRegistro" class="form-label">Sexo</label>
-                            <select class="form-control" id="statusRegistro" name="statusRegistro" required>
-                                    <option value="">...</option>
+                            <label for="registroSexo" class="form-label">Sexo</label>
+                            <select class="form-control" id="registroSexo" name="registroSexo" required>
+                                    <option value="">Prefiro não informar</option>
                                     <option value="M">Masculino</option>
                                     <option value="F">Feminino</option>
                             </select>
                         </div>
                     </div>
-
-                    <?php if ($_SESSION['msgError'] == "SenhasDiferentes"): ?>
-                        <div class="pass-link error">
-                            <a>Insira a mesma senha</a>
-                        </div>
-                    <?php endif;?>
-
+                    
                     <?php if ($_SESSION['msgSucess'] == "Registrado"): ?>
                         <div class="pass-link success">
                             <a>Registrado</a>
