@@ -198,10 +198,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--white2);
     min-height: 80vh;
     margin: 15px 20px;
     border-radius: 20px;
+    border: 1px solid #ccc;
 }
 
 #sem-projetos-main {

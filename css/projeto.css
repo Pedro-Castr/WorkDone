@@ -62,8 +62,8 @@ main h1 {
 }
 
 #descricao {
-    height: 200px; /* Ajuste conforme necessário */
-    border: 1px solid #ccc; /* Adiciona borda ao editor */
+    height: 200px;
+    border: 1px solid #ccc;
     padding: 10px;
-    background-color: white; /* Garante que o fundo seja branco */
+    background-color: white;
 }

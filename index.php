@@ -90,45 +90,44 @@
                     </a>
                 </div>
 
-                <table class="table table-hover table-bordered table-responsive-sm mt-4">
-                    <thead>
-                        <tr>
-                            <th>Tarefa</th>
-                            <th>Prazo</th>
-                            <th style="width: 200px;">Ações</th> <!-- Limita a largura da coluna -->
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <!-- <tr>
-                            <td>Cadastrar Projeto</td>
-                            <td>12/12/2024</td>
-                            <td class="text-nowrap">
-                                <button type="button" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar tarefa"></button>
-                                <button type="button" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></button>
-                            </td>
-                        </tr> -->
-
-                        <?php if (count($data) > 0): ?>
-                            <?php foreach ($data as $row): ?>
-                                <tr>
-                                    <td><?= $row['nomeProjeto'] ?></td>
-                                    <td><?= $row['prazo'] ?></td>
-                                    <td>
-                                        <a href="./Features/formProjeto.php?acao=delete&id=<?= $row['projetoId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
-                                        <a href="./Features/formProjeto.php?acao=update&id=<?= $row['projetoId'] ?>" class="btn btn-secondary"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
-                                        <a href="./Features/formProjeto.php?acao=concluir&id=<?= $row['projetoId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else: ?>
+                <div class="container">
+                    <table class="table table-hover table-bordered table-responsive-sm mt-4">
+                        <thead>
                             <tr>
-                                <td colspan="6">Nenhuma tarefa encontrado.</td>
+                                <th>Tarefa</th>
+                                <th>Prazo</th>
+                                <th style="width: 200px;">Ações</th> <!-- Limita a largura da coluna -->
                             </tr>
-                        <?php endif; ?>
-
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>Cadastrar Projeto</td>
+                                <td>12/12/2024</td>
+                                <td class="text-nowrap">
+                                    <button type="button" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar tarefa"></button>
+                                    <button type="button" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></button>
+                                </td>
+                            </tr> -->
+                            <?php if (count($data) > 0): ?>
+                                <?php foreach ($data as $row): ?>
+                                    <tr>
+                                        <td><?= $row['nomeProjeto'] ?></td>
+                                        <td><?= $row['prazo'] ?></td>
+                                        <td>
+                                            <a href="./Features/formProjeto.php?acao=delete&id=<?= $row['projetoId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
+                                            <a href="./Features/formProjeto.php?acao=update&id=<?= $row['projetoId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
+                                            <a href="./Features/formProjeto.php?acao=concluir&id=<?= $row['projetoId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="6">Nenhuma tarefa encontrado.</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     </div>
