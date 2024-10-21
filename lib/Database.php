@@ -11,9 +11,9 @@ class Database
     {
         try {
             $conn = new PDO(
-                "mysql:host=localhost;port=3308;dbname=workdone", 
+                "mysql:host=localhost;port=3306;dbname=workdone", 
                 "root",         // Usuário
-                "#Gl2cGp8u",    // senha
+                "",             // senha
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
             );
     
