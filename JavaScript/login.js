@@ -38,3 +38,15 @@ window.onload = () => {
         showLoginForm();
     }
 };
+
+//Botão de fechar do pop-up
+document.getElementById('fecharPopup').onclick = function() {
+    document.getElementById('popup-codigo').style.display = 'none';
+};
+
+document.getElementById('registroTelefone').addEventListener('input', function (e) {
+    let x = e.target.value.replace(/\D/g, ''); 
+    x = x.replace(/^(\d{2})(\d)/g, '($1) $2'); 
+    x = x.replace(/(\d{5})(\d)/, '$1-$2'); 
+    e.target.value = x;
+});

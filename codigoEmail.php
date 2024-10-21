@@ -40,6 +40,7 @@ try {
 
     if ($mail->send()) {
         $_SESSION['msgSucessEmail'] = "Sucess";
+        $_SESSION['emailEnviado'] = true;
         return header("Location: login.php");
     } else {
         $_SESSION['msgError'] = "Erro" . $mail->ErrorInfo;
