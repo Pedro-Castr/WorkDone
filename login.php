@@ -116,7 +116,7 @@
                             <input type="password" class="form-control" id="registroSenha" name="registroSenha" placeholder="Senha" required>
                         </div>
 
-                        <div class="col-7">
+                        <div class="col-6">
                             <label for="registroTelefone" class="form-label">Telefone</label>
                             <input type="tel" class="form-control" id="registroTelefone" name="registroTelefone" placeholder="(99) 99999-9999" maxlength="15" required>
                             <?php if ($_SESSION['msgError'] == "telefoneEmUso"): ?>
@@ -126,7 +126,7 @@
                             <?php endif;?>
                         </div>
 
-                        <div class="col-5">
+                        <div class="col-6">
                             <label for="registroSexo" class="form-label">Sexo</label>
                             <select class="form-control" id="registroSexo" name="registroSexo" required>
                                     <option value="">Prefiro não informar</option>
