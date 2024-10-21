@@ -5,6 +5,7 @@
     $db = new Database();
 
     $data = $db->dbSelect("SELECT * FROM projetos");
+    $dataTarefa = $db->dbSelect("SELECT * FROM tarefas");
 ?>
 
 <!DOCTYPE html>
@@ -33,97 +34,84 @@
             <img src="imagens/gear.svg" alt="Configurações">
         </a>
     </header>
-
+    
     <div id="container">
         <nav id="sidebar">
-            <!-- Essa div aparecerá caso não tenha nenhum projeto   
-            <div id="sem-projetos">
-                <p>Seus projetos aparecerão aqui</p>
-            </div>
-            -->
+            <?php if (count($data) > 0): ?>   
+                    <div id="add-projeto">
+                        <a href="./Features/formProjeto.php?acao=insert">
+                            <h5>Adicionar projeto</h5>
+                        </a>
+                    </div>
+                
 
-            <div id="add-projeto">
-                <a href="./Features/formProjeto.php?acao=insert">
-                    <h5>Adicionar projeto</h5>
-                </a>
-            </div>
+                <div id="projetos">
+                    <ul>
+                        <?php foreach ($data as $row): ?>
+                            <li><?= $row['nomeProjeto'] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
-            <div id="projetos">
-                <ul>
-                    <li>Projeto teste1</li>
-                    <li>projeto teste 02</li>
-                    <li>teste 03</li>
-                    <li>projeto grande teste 04</li>
-                </ul>
-            </div>
+                <?php else: ?>
+                <div id="sem-projetos">
+                    <p>Seus projetos aparecerão aqui</p>
+                </div>
+                <?php endif; ?>
         </nav>
         
         <main>
-            <!-- Essa div vai aparecer quando não tiver nenhum projeto aberto
-            <div id="sem-projetos-main>
-                <p>Está um pouco quieto por aqui, crie seu primeiro projeto agora mesmo!</p>
-                <a href="./Features/formProjeto.php?acao=insert&id=">
-                    <img src="imagens/plus-lg.svg" alt="Cria projeto">
-                </a>
-            </div>
-            -->
-
-            <div id="projetos-main">
-                <div class="cabecalho-projeto">
-                    <div id="cabecalho">
-                        <h2>Nome do projeto para teste</h2>
-                        <h3>23/04/2025</h3>
+            <?php if (count($data) > 0): ?>
+                <div id="projetos-main">
+                    <div class="cabecalho-projeto">
+                        <div id="cabecalho">
+                            <h2>Nome do projeto para teste</h2>
+                            <h3>23/04/2025</h3>
+                        </div>
+                        <p class="descricao-projeto">
+                            descrição do projeto: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt voluptatum omnis unde ipsam totam, reprehenderit
+                        </p>
                     </div>
-                    <p class="descricao-projeto">
-                        descrição do projeto: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt voluptatum omnis unde ipsam totam, reprehenderit
-                    </p>
-                </div>
-
-                <div id="btn-add-task">
-                    <a href="./Features/formProjeto.php?acao=insert">
-                        <button class="add-task">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                            </span>
-                            <span class="button-text">Adicionar Tarefa</span>
-                        </button>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <table class="table table-hover table-bordered table-responsive-sm mt-4">
-                        <thead>
-                            <tr>
-                                <th>Tarefa</th>
-                                <th>Prazo</th>
-                                <th style="width: 200px;">Ações</th> <!-- Limita a largura da coluna -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- <tr>
-                                <td>Cadastrar Projeto</td>
-                                <td>12/12/2024</td>
-                                <td class="text-nowrap">
-                                    <button type="button" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar tarefa"></button>
-                                    <button type="button" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></button>
-                                </td>
-                            </tr> -->
-                            <?php if (count($data) > 0): ?>
-                                <?php foreach ($data as $row): ?>
-                                    <tr>
-                                        <td><?= $row['nomeProjeto'] ?></td>
-                                        <td><?= $row['prazo'] ?></td>
-                                        <td>
-                                            <a href="./Features/formProjeto.php?acao=delete&id=<?= $row['projetoId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
-                                            <a href="./Features/formProjeto.php?acao=update&id=<?= $row['projetoId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
-                                            <a href="./Features/formProjeto.php?acao=concluir&id=<?= $row['projetoId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
+    
+                    <div id="btn-add-task">
+                        <a href="./Features/formProjeto.php?acao=insert">
+                            <button class="add-task">
+                                <span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Adicionar Tarefa</span>
+                            </button>
+                        </a>
+                    </div>
+    
+                    <div class="container">
+                        <table class="table table-hover table-bordered table-responsive-sm mt-4">
+                            <thead>
                                 <tr>
-                                    <td colspan="6">Nenhuma tarefa encontrado.</td>
+                                    <th>Tarefa</th>
+                                    <th>Prazo</th>
+                                    <th style="width: 200px;">Ações</th> <!-- Limita a largura da coluna -->
                                 </tr>
+                            </thead>
+                        <tbody>
+                            <?php foreach ($data as $row): ?>
+                                <tr>
+                                    <td><?= $row['nomeProjeto'] ?></td>
+                                    <td><?= $row['prazo'] ?></td>
+                                    <td>
+                                        <a href="./Features/formProjeto.php?acao=delete&id=<?= $row['projetoId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
+                                        <a href="./Features/formProjeto.php?acao=update&id=<?= $row['projetoId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
+                                        <a href="./Features/formProjeto.php?acao=concluir&id=<?= $row['projetoId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            <?php else: ?>
+                                <div id="sem-projetos-main">
+                                    <p>Está um pouco quieto por aqui, crie seu primeiro projeto agora mesmo!</p>
+                                    <a href="./Features/formProjeto.php?acao=insert&id=">
+                                        <img src="imagens/plus-lg.svg" alt="Cria projeto">
+                                    </a>
+                                </div>
                             <?php endif; ?>
                         </tbody>
                     </table>

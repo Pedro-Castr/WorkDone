@@ -55,8 +55,8 @@ if ($_GET['acao'] != 'insert') {
                     </div>
                     <div class="col-12 mt-3 mb-3">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <div id="descricao"><?= Funcoes::setValue($dados, 'descricao') ?></div> <!-- Quill vai usar este contêiner -->
-                        <input type="hidden" name="descricao" id="descricao"> <!-- Campo oculto para armazenar o conteúdo -->
+                        <div id="descricao"></div> <!-- Quill vai usar este contêiner -->
+                        <input type="hidden" name="descricao" id="descricao" value="<?= Funcoes::setValue($dados, 'descricao') ?>"> <!-- Campo oculto para armazenar o conteúdo -->
                     </div>
                 </div>
                 <div class="row mt-3">

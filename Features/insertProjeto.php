@@ -14,13 +14,12 @@ if (isset($_POST['nome'])) {
 
     try {
         $result = $db->dbInsert("INSERT INTO projetos
-                                (nomeProjeto, prazo, descricao, situacao)
-                                VALUES (?, ?, ?, ?)"
+                                (nomeProjeto, prazo, descricao)
+                                VALUES (?, ?, ?)"
                                 ,[
                                     $_POST['nome'],
                                     $_POST['prazo'],
                                     $_POST['descricao'],
-                                    $_POST['situacao']
                                 ]);
         
         if ($result > 0) {      // sucesso
