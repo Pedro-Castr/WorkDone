@@ -61,7 +61,7 @@
 
                 <form method="POST" action="Features/autenticacaoUsuario.php" class="login">
                 <div class="row px-1">  
-                    <div class="col-12">
+                    <div class="col-12 mb-1">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" autofocus required>
                     </div>
@@ -90,7 +90,7 @@
                 <form method="POST" action="Features/verificarEmail.php" class="signup">
 
                     <div class="row px-1">      
-                        <div class="col-12">
+                        <div class="col-12 mb-1">
                             <label for="registroEmail" class="form-label">Email</label>
                             <input type="email" class="form-control" id="registroEmail" name="registroEmail" placeholder="Seu melhor Email" autofocus required>
                         </div>
@@ -111,7 +111,7 @@
                             <?php endif;?>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mb-1">
                             <label for="registroSenha" class="form-label">Senha</label>
                             <input type="password" class="form-control" id="registroSenha" name="registroSenha" placeholder="Senha" required>
                         </div>
