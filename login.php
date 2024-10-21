@@ -1,7 +1,6 @@
 <?php
     error_reporting(0);
     session_start();
-    echo $_SESSION['msgError'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,6 +20,24 @@
             Work<span>Done</span>
         </h1>
     </div>
+
+    <!-- Pop-up para inserir o código de verificação -->
+    <div id="popup-codigo" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h3>Código de Verificação</h3>
+            <form method="POST" action="Features/verificarCodigo.php">
+                <button id="fecharPopup" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+                <label for="codigoVerificacao">Insira o código enviado para seu e-mail:</label>
+                <input type="text" id="codigoVerificacao" name="codigoVerificacao" maxlength="4" required >
+                <?php if (isset($_SESSION['codigoIncorreto']) && $_SESSION['codigoIncorreto'] === true): ?>
+                    <p style="color: red;">Código incorreto. Tente novamente.</p>
+                    <?php unset($_SESSION['codigoIncorreto']);  ?>
+                <?php endif; ?>
+                <input type="submit" value="Confirmar">
+            </form>
+        </div>
+    </div>
+
 
     <div class="wrapper">
         <div class="title-text">
@@ -70,7 +87,7 @@
                 </div>
                 </form>
 
-                <form method="POST" action="Features/insertUsuario.php" class="signup">
+                <form method="POST" action="Features/verificarEmail.php" class="signup">
 
                     <div class="row px-1">      
                         <div class="col-12">
@@ -101,7 +118,7 @@
 
                         <div class="col-7">
                             <label for="registroTelefone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="registroTelefone" name="registroTelefone" placeholder="(99) 99999-9999">
+                            <input type="tel" class="form-control" id="registroTelefone" name="registroTelefone" placeholder="(99) 99999-9999" maxlength="15" required>
                             <?php if ($_SESSION['msgError'] == "telefoneEmUso"): ?>
                                 <div class="pass-link error">
                                     <a>Telefone em uso</a>
@@ -135,6 +152,13 @@
     </div>
 
     <script type="text/javascript" src="JavaScript/login.js"></script>
-    <?php session_unset() ?>
+    <script>
+        window.onload = function() {
+            <?php if (isset($_SESSION['emailEnviado']) && $_SESSION['emailEnviado'] === true): ?>
+                document.getElementById("popup-codigo").style.display = "flex";
+            <?php unset($_SESSION['emailEnviado']); // Remove a sessão para não exibir novamente ?>
+            <?php endif; ?>
+        };
+    </script>
 </body>
 </html>
