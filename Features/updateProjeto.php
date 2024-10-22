@@ -12,13 +12,12 @@ if (isset($_POST['id'])) {
 
     try {
         $result = $db->dbUpdate("UPDATE projetos
-                                SET nomeProjeto = ?, prazo = ?, descricao = ?, situacao = ?
+                                SET nomeProjeto = ?, prazo = ?, descricao = ?
                                 WHERE projetoId = ?"
                                 , [
                                     $_POST['nome'],
                                     $_POST['prazo'],
                                     $_POST['descricao'],
-                                    $_POST['situacao'],
                                     $_POST['id']
                                 ]);
         
