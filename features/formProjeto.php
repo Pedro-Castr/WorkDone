@@ -34,16 +34,17 @@ if ($_GET['acao'] != 'insert') {
     <header>
         <a href="../index.php" id="titulo">
             <h1>Work<span>Done</span></h1>
-        </a>
+        </a>    
     </header>
 
     <main>
-        <h1 class="px-5">Cadasto de Projetos</h1>
+        <h1 class="px-5">Cadasto de Projetos</h1> <!-- <?= $_GET['acao'] ?> -->
 
         <hr class="my-2">
         <div class="container">
             <form class="g-3" action="<?= $_GET['acao'] ?>Projeto.php" method="POST">
             <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "projetoId") ?>">
+            
                 <div class="row mx-2">
                     <div class="col-7 mt-3 mb-3">
                         <label for="nome" class="form-label">Nome do Projeto</label>
@@ -55,11 +56,11 @@ if ($_GET['acao'] != 'insert') {
                     </div>
                     <div class="col-12 mt-3 mb-3">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <div id="descricao"></div> <!-- Quill vai usar este contêiner -->
+                        <div id="comboBox"></div> <!-- Quill vai usar este contêiner -->
                         <input type="hidden" name="descricao" id="descricao" value="<?= Funcoes::setValue($dados, 'descricao') ?>"> <!-- Campo oculto para armazenar o conteúdo -->
                     </div>
-                </div>
-                <div class="row mt-3">
+                </div><br>
+                <div class="row mt-5">
                     <div class="col-12">
                         <a href="../index.php"
                             class="btn btn-outline-secondary btn-sm">
@@ -77,7 +78,7 @@ if ($_GET['acao'] != 'insert') {
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
     // Inicializa o editor Quill
-    var quill = new Quill('#descricao', {
+    var quill = new Quill('#comboBox', {
         theme: 'snow',
         placeholder: 'Digite a descrição do projeto aqui...',
     });
@@ -85,7 +86,7 @@ if ($_GET['acao'] != 'insert') {
     // Atualiza o conteúdo do campo oculto com o conteúdo HTML do editor Quill
     document.querySelector('form').onsubmit = function() {
         var editorContent = quill.root.innerHTML;
-        document.getElementById('descricao').value = editorContent;
+        document.getElementById('comboBox').value = editorContent;
     };
 </script>
 </body>

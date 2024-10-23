@@ -13,17 +13,18 @@ if (isset($_POST['nome'])) {
     $db = new Database();
 
     try {
-        $result = $db->dbInsert("INSERT INTO projetos
-                                (nomeProjeto, prazo, descricao)
-                                VALUES (?, ?, ?)"
+        $result = $db->dbInsert("INSERT INTO tarefas
+                                (nomeTarefa, prazo, descricao, situacao)
+                                VALUES (?, ?, ?, ?)"
                                 ,[
                                     $_POST['nome'],
                                     $_POST['prazo'],
-                                    $_POST['descricao']
+                                    $_POST['descricao'],
+                                    $_POST['situacao']
                                 ]);
         
         if ($result > 0) {      // sucesso
-            $_SESSION['msgSuccess'] = "Projeto inserido com sucesso.";
+            $_SESSION['msgSuccess'] = "Tarefa inserida com sucesso.";
         }
 
     } catch (Exception $e) {

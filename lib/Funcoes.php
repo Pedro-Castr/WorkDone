@@ -80,11 +80,11 @@ class Funcoes
      * @param int $status 
      * @return string
      */
-    public static function getStatusRegistro($status) : string
+    public static function getSituacao($situacao) : string
     {
-        if ($status == 1) {
+        if ($situacao == 1) {
             return "Ativo";
-        } elseif ($status == 2) {
+        } elseif ($situacao == 2) {
             return "Inativo";
         } else {
             return "...";

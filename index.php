@@ -74,7 +74,7 @@
                     </div>
     
                     <div id="btn-add-task">
-                        <a href="./Features/formProjeto.php?acao=insert">
+                        <a href="./Features/formTarefa.php?acao=insert">
                             <button class="add-task">
                                 <span class="circle" aria-hidden="true">
                                     <span class="icon arrow"></span>
@@ -90,18 +90,20 @@
                                 <tr>
                                     <th>Tarefa</th>
                                     <th>Prazo</th>
+                                    <th>Situação</th>
                                     <th style="width: 200px;">Ações</th> <!-- Limita a largura da coluna -->
                                 </tr>
                             </thead>
                         <tbody>
-                            <?php foreach ($data as $row): ?>
+                            <?php foreach ($dataTarefa as $row): ?>
                                 <tr>
-                                    <td><?= $row['nomeProjeto'] ?></td>
+                                    <td><?= $row['nomeTarefa'] ?></td>
                                     <td><?= $row['prazo'] ?></td>
+                                    <td><?= $row['situacao'] ?></td>
                                     <td>
-                                        <a href="./Features/formProjeto.php?acao=delete&id=<?= $row['projetoId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
-                                        <a href="./Features/formProjeto.php?acao=update&id=<?= $row['projetoId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
-                                        <a href="./Features/formProjeto.php?acao=concluir&id=<?= $row['projetoId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
+                                        <a href="./Features/formTarefa.php?acao=delete&id=<?= $row['tarefaId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
+                                        <a href="./Features/formTarefa.php?acao=update&id=<?= $row['tarefaId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
+                                        <a href="./Features/formTarefa.php?acao=concluir&id=<?= $row['tarefaId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
