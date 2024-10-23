@@ -1,7 +1,6 @@
 <?php
-    //error_reporting(0);
+    error_reporting(0);
     session_start();
-    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,10 +28,9 @@
             <form method="POST" action="Features/verificarCodigo.php">
                 <button id="fecharPopup" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
                 <label for="codigoVerificacao">Insira o código enviado para seu e-mail:</label>
-                <input type="text" id="codigoVerificacao" name="codigoVerificacao" maxlength="4" required >
-                <?php if (isset($_SESSION['codigoIncorreto']) && $_SESSION['codigoIncorreto'] === true): ?>
+                <input type="text" id="codigoVerificacao" name="codigoVerificacao" maxlength="7" required>
+                <?php if (isset($_SESSION['codigoIncorreto']) && $_SESSION['codigoIncorreto'] == "codigoInvalido"): ?>
                     <p style="color: red;">Código incorreto. Tente novamente.</p>
-                    <?php unset($_SESSION['codigoIncorreto']);  ?>
                 <?php endif; ?>
                 <input type="submit" value="Confirmar">
             </form>
@@ -136,13 +134,6 @@
                             </select>
                         </div>
                     </div>
-                    
-                    <?php if ($_SESSION['msgSucess'] == "Registrado"): ?>
-                        <div class="pass-link success">
-                            <a>Registrado</a>
-                        </div>
-                    <?php endif; ?>
-
                     <div class="field btn">
                         <div class="btn-layer"></div>
                         <input type="submit" value="Registrar">
@@ -155,11 +146,19 @@
     <script type="text/javascript" src="JavaScript/login.js"></script>
     <script>
         window.onload = function() {
+            // Verificar se o código enviado está incorreto e exibir o pop-up
+            <?php if (isset($_SESSION['codigoIncorreto']) && $_SESSION['codigoIncorreto'] == "codigoInvalido"): ?>
+                document.getElementById("popup-codigo").style.display = "flex";
+                <?php unset($_SESSION['codigoIncorreto']); // Limpa a sessão após exibir a mensagem ?>
+            <?php endif; ?>
+            
+            // Verificar se o e-mail foi enviado e exibir o pop-up
             <?php if (isset($_SESSION['emailEnviado']) && $_SESSION['emailEnviado'] === true): ?>
                 document.getElementById("popup-codigo").style.display = "flex";
-            <?php unset($_SESSION['emailEnviado']); // Remove a sessão para não exibir novamente ?>
+                <?php unset($_SESSION['emailEnviado']); // Remove a sessão para não exibir novamente ?>
             <?php endif; ?>
         };
+
     </script>
 </body>
 </html>
