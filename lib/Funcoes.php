@@ -83,9 +83,13 @@ class Funcoes
     public static function getSituacao($situacao) : string
     {
         if ($situacao == 1) {
-            return "Ativo";
+            return "Pendente";
         } elseif ($situacao == 2) {
-            return "Inativo";
+            return "Em andamento";
+        } elseif ($situacao == 3) {
+            return "Finalizado";
+        } elseif ($situacao == 4) {
+            return "Atrasado";
         } else {
             return "...";
         }

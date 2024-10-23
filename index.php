@@ -98,8 +98,8 @@
                             <?php foreach ($dataTarefa as $row): ?>
                                 <tr>
                                     <td><?= $row['nomeTarefa'] ?></td>
-                                    <td><?= $row['prazo'] ?></td>
-                                    <td><?= $row['situacao'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($row['prazo'])) ?></td>
+                                    <td><?=Funcoes::getSituacao($row['situacao']) ?></td>
                                     <td>
                                         <a href="./Features/formTarefa.php?acao=delete&id=<?= $row['tarefaId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
                                         <a href="./Features/formTarefa.php?acao=update&id=<?= $row['tarefaId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
