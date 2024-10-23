@@ -37,7 +37,7 @@ if ($_GET['acao'] != 'insert') {
     </header>
 
     <main>
-        <h1 class="px-5">Cadasto de tarefa</h1> <!-- <?= $_GET['acao'] ?> -->
+        <h1 class="px-5">Cadasto de tarefa - <?= $_GET['acao'] ?></h1>
 
         <hr class="my-2">
         <div class="container">
@@ -45,17 +45,17 @@ if ($_GET['acao'] != 'insert') {
             <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "tarefaId") ?>">
             
                 <div class="row mx-2">
-                    <div class="col-7 mt-4">
+                    <div class="col-4 mt-4">
                         <label for="nome" class="form-label">Nome da tarefa</label>
                         <input type="text" class="form-control" id="nome" name="nome" autocomplete="off" placeholder="Nome da tarefa" value="<?= Funcoes::setValue($dados, 'nomeTarefa') ?>" required autofocus>
                     </div>
                     
-                    <div class="col-5 mt-4">
+                    <div class="col-4 mt-4">
                         <label for="prazo" class="form-label">Prazo</label>
                         <input type="date" class="form-control" id="prazo" name="prazo" autocomplete="off" required value="<?= Funcoes::setValue($dados, 'prazo') ?>">
                     </div>
              
-                    <div class="col-5 mt-4">
+                    <div class="col-4 mt-4">
                         <label for="situacao" class="form-label">Situação</label>
                         <select class="form-control" id="situacao" name="situacao" required>
                                 <option value=""  <?= Funcoes::setValue($dados, 'situacao') == ""  ? 'selected' : '' ?>>...</option>
@@ -66,11 +66,11 @@ if ($_GET['acao'] != 'insert') {
                         </select>
                     </div>
 
-                    <div class="col-12 mt-4">
+                    <!-- <div class="col-12 mt-3 mb-3">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <div id="descricao"></div> <!-- Quill vai usar este contêiner -->
-                        <input type="hidden" name="descricao" id="descricao" value="<?= Funcoes::setValue($dados, 'descricao') ?>"> <!-- Campo oculto para armazenar o conteúdo -->
-                    </div>
+                        <div id="comboBox"></div> 
+                        <input type="hidden" name="descricao" id="descricao" value="<?= Funcoes::setValue($dados, 'descricao') ?>">
+                    </div> -->
 
                 </div>
                 <div class="row mt-3">
@@ -86,6 +86,6 @@ if ($_GET['acao'] != 'insert') {
                 </div>
             </form>
         </div>
-    </main>            
+    </main>
 </body>
 </html>
