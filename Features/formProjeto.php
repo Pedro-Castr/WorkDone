@@ -27,7 +27,6 @@ if ($_GET['acao'] != 'insert') {
     <link rel="stylesheet" href="../css/projeto.css">
     <link rel="shortcut icon" href="../imagens/checkedIcon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="JavaScript/main.js" defer></script>
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> <!-- Quill CSS -->
 </head>
 <body>
@@ -76,18 +75,18 @@ if ($_GET['acao'] != 'insert') {
     </main>
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-    // Inicializa o editor Quill
-    var quill = new Quill('#comboBox', {
-        theme: 'snow',
-        placeholder: 'Digite a descrição do projeto aqui...',
-    });
+    <script>
+        // Inicializa o editor Quill
+        var quill = new Quill('#comboBox', {
+            theme: 'snow',
+            placeholder: 'Digite a descrição do projeto aqui...',
+        });
 
-    // Atualiza o conteúdo do campo oculto com o conteúdo HTML do editor Quill
-    document.querySelector('form').onsubmit = function() {
-        var editorContent = quill.root.innerHTML;
-        document.getElementById('comboBox').value = editorContent;
-    };
-</script>
+        // Atualiza o conteúdo do campo oculto com o conteúdo HTML do editor Quill
+        document.querySelector('form').onsubmit = function() {
+            var editorContent = quill.root.innerHTML;
+            document.getElementById('comboBox').value = editorContent;
+        };
+    </script>
 </body>
 </html>

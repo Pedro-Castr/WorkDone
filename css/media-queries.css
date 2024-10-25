@@ -16,7 +16,11 @@
         margin: 0 30px;
     }
 
-    #add-projeto h5{
+    #add-projeto h5 {
+        font-size: 1.2em;
+    }
+
+    #notas h5 {
         font-size: 1.2em;
     }
 
@@ -86,6 +90,10 @@
     }
 
     #add-projeto h5 {
+        font-size: 1.6em;
+    }
+
+    #notas h5 {
         font-size: 1.6em;
     }
 

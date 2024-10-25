@@ -194,6 +194,27 @@ header {
     cursor: pointer;
 }
 
+#notas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: transform 0.2s ease;
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+#notas:hover {
+    transform: translateY(-3px);
+    text-decoration: underline;
+}
+
+#notas a {
+    color: var(--black);
+    text-decoration: none;
+    padding-right: 15px;
+}
+
 /* Personalização do main */
 
 main {
@@ -290,7 +311,8 @@ main {
     padding: 0 2rem;
     border-radius: 1.5rem;
     background-size: 400%;
-    color: #fff;
+    font-family: "Space-Grotesk";
+    color: var(--white);
     border: none;
     cursor: pointer;
 }

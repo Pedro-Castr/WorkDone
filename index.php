@@ -38,12 +38,11 @@
     <div id="container">
         <nav id="sidebar">
             <?php if (count($data) > 0): ?>   
-                    <div id="add-projeto">
-                        <a href="./Features/formProjeto.php?acao=insert">
-                            <h5>Adicionar projeto</h5>
-                        </a>
-                    </div>
-                
+                <div id="add-projeto">
+                    <a href="./Features/formProjeto.php?acao=insert">
+                        <h5>Adicionar projeto</h5>
+                    </a>
+                </div>
 
                 <div id="projetos">
                     <ul>
@@ -53,11 +52,18 @@
                     </ul>
                 </div>
 
-                <?php else: ?>
+            <?php else: ?>
                 <div id="sem-projetos">
                     <p>Seus projetos aparecerão aqui</p>
                 </div>
-                <?php endif; ?>
+            <?php endif; ?>
+
+            <div id="notas">
+                <a href="#">
+                    <h5>Bloco de Notas</h5>
+                </a>
+                <img src="imagens/journal.svg" alt="Bloco de Notas">
+            </div>
         </nav>
         
         <main>
@@ -105,7 +111,7 @@
                                     <td><?=Funcoes::getSituacao($row['situacao']) ?></td>
                                     <td>
                                         <a href="./Features/formTarefa.php?acao=delete&id=<?= $row['tarefaId'] ?>" class="btn btn-danger me-2"><img class="icon" src="imagens/trash.svg" alt="Apagar Tarefa"></a>
-                                        <a href="./Features/formTarefa.php?acao=update&id=<?= $row['tarefaId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/edit.svg" alt="Editar Tarefa"></a>
+                                        <a href="./Features/formTarefa.php?acao=update&id=<?= $row['tarefaId'] ?>" class="btn btn-warning me-2"><img class="icon" src="imagens/pencil.svg" alt="Editar Tarefa"></a>
                                         <a href="./Features/formTarefa.php?acao=concluir&id=<?= $row['tarefaId'] ?>" class="btn btn-success"><img class="icon" src="imagens/check.svg" alt="Concluir Tarefa"></a>
                                     </td>
                                 </tr>
