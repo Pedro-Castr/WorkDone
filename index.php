@@ -72,18 +72,21 @@
                             descrição do projeto: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt voluptatum omnis unde ipsam totam, reprehenderit
                         </p>
                     </div>
-    
-                    <div id="btn-add-task">
+
+                    <div id="botoes">
                         <a href="./Features/formTarefa.php?acao=insert">
-                            <button class="add-task">
-                                <span class="circle" aria-hidden="true">
-                                    <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">Adicionar Tarefa</span>
+                            <button class="button btn-add">
+                                <span class="button-content">Adicionar Tarefa</span>
+                            </button>
+                        </a>
+
+                        <a href="#">
+                            <button class="button btn-del">
+                                <span class="button-content">Excluir Projeto</span>
                             </button>
                         </a>
                     </div>
-    
+
                     <div class="container">
                         <table class="table table-hover table-bordered table-responsive-sm mt-4">
                             <thead>

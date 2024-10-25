@@ -52,6 +52,10 @@
         font-size: 1.2em;
     }
 
+    #botoes {
+        padding: 0 20px;
+    }
+
     /* Personalizando o arquivo login.php */
 
     #titulo-login h1 {
@@ -120,6 +124,10 @@
 
     .descricao-projeto {
         font-size: 1.1em;
+    }
+
+    #botoes {
+        padding: 0 25px;
     }
 
     /* Personalizando o arquivo login.php */

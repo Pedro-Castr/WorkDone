@@ -21,12 +21,14 @@
 
 :root {
     --green: #32BA7C;
-    --green2: #1c6947;
+    --green2: #207a53;
     --black: #111411;
     --black2: #1a1b1a;
     --white: #f5f5f5;
     --white2: #dbdbdb;
     --white3: #b3b3b3;
+    --red: #FF3856;
+    --red2: #ce2d45;
 }
 
 * {
@@ -274,98 +276,61 @@ main {
 
 /* Personalização do botão para adicionar tarefas */
 
-#btn-add-task {
+#botoes {
     display: flex;
-    justify-content: start;
-    padding: 0px 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
 }
 
-button {
+.button {
     position: relative;
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
-    border: 0;
-    vertical-align: middle;
-    text-decoration: none;
-    background: transparent;
-    padding: 0;
-    font-size: inherit;
-    font-family: inherit;
-}
-
-button.add-task {
-    width: 13rem;
-    height: auto;
-}
-
-button.add-task .circle {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    position: relative;
-    display: block;
-    margin: 0;
-    width: 3rem;
+    overflow: hidden;
     height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-add {
     background: var(--green);
-    border-radius: 1.625rem;
 }
 
-button.add-task .circle .icon {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background: #fff;
+.btn-del {
+    background: var(--red);
 }
 
-button.add-task .circle .icon.arrow {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    left: 0.625rem;
-    width: 1.125rem;
-    height: 0.125rem;
-    background: none;
+.button:hover::before {
+    transform: scaleX(1);
 }
 
-button.add-task .circle .icon.arrow::before {
-    position: absolute;
+.button-content {
+    position: relative;
+    z-index: 1;
+
+}
+.button::before {
     content: "";
-    top: -0.29rem;
-    right: 0.0625rem;
-    width: 0.625rem;
-    height: 0.625rem;
-    border-top: 0.125rem solid #fff;
-    border-right: 0.125rem solid #fff;
-    transform: rotate(45deg);
-}
-
-button.add-task .button-text {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.75rem 0;
-    margin: 0 0 0 1.85rem;
-    color: var(--black);
-    font-weight: 700;
-    line-height: 1.6;
-    text-align: center;
-    font-family: "Space-Grotesk";
-}
-
-button:hover .circle {
+    transform: scaleX(0);
+    transform-origin: 0 50%;
     width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    transition: all 0.475s;
 }
 
-button:hover .circle .icon.arrow {
-    background: #fff;
-    transform: translate(1rem, 0);
+.btn-add::before {
+    background: var(--green2);
 }
 
-button:hover .button-text {
-    color: #fff;
+.btn-del::before {
+    background: var(--red2);
 }
 
 /* Personalização da Table */
